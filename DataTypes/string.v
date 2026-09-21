@@ -1,4 +1,9 @@
-module string_dt;
-  string name = "SystemVerilog";
-  initial $display("Name = %s, Length = %0d", name, name.len());
+module tb;
+  string word="HELLO";
+  initial begin
+    $display("%s",word);
+    foreach(word[i]) begin
+      $display("%s",word[i]);
+    end
+  end
 endmodule
