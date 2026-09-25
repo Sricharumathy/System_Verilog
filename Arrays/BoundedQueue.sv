@@ -1,16 +1,18 @@
-module queuetb;
-  int jack[$:7];
+module boundedqtb;
+  int array[$:5];
   initial begin
-    jack='{11,22,33,44,55,66,77};
-    foreach(jack[i]) begin
-      $display("%0d",jack[i]);
+    array='{1,4,9,14,25};
+    $display(" initial array %p",array);
+    foreach(array[i]) begin
+      $display("%0d",array[i]);
     end
-    $display("%p",jack);
-    jack.pop_back();
-    $display("%p",jack);
-    jack.push_back(88);
-    $display("%p",jack);
+    array.push_back(36);
+    $display("%p",array);
+    array.push_back(49);
+    $display("%p",array); //queue overflow
+    $display("%p",array.pop_front);
+    $display("After Push and Pop Operation Array is %p",array);  
     
-   end
-  
+  end
 endmodule
+    
