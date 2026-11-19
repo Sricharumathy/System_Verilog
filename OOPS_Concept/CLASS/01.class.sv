@@ -14,3 +14,16 @@ class myclass;
     $display("Header = 0x%0h, Encode = %0b, Mode = 0x%0h, Stop = %0b",this.header, this.encode, this.mode, this.stop);
   endfunction  
 endclass
+
+
+module tb_top;
+	myclass pkt0, pkt1;
+
+	initial begin
+		pkt0 = new (3'h2, 3'h3);
+		pkt0.display ();
+
+		pkt1 = new ();
+		pkt1.display ();
+	end
+endmodule
